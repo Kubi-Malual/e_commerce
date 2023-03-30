@@ -1,16 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class User {
+class Users {
+  String? id;
+  String? uid;
   String? name;
   String? email;
-  String? password;
+  int? number;
 
-  static User fromJsom(QuerySnapshot snapshot) {
-    var user = User();
-    user.name != snapshot.docs.first['name'];
-    user.email != snapshot.docs.first["email"];
-    user.password != snapshot.docs.first["password"];
-    
-    return user;
+  Users({
+    this.id,
+    required this.uid,
+    required this.name,
+    required this.email,
+    required this.number,
+  });
+
+  Users.fromMap(DocumentSnapshot data) {
+    id = data.id;
+    name = data["name"];
+    email = data["email"];
+    number = data["number"];
+    uid = data["uid"];
   }
 }
