@@ -10,6 +10,7 @@ class User {
     user.name != snapshot.docs.first['name'];
     user.email != snapshot.docs.first["email"];
     user.password != snapshot.docs.first["password"];
+    
     return user;
   }
 }
